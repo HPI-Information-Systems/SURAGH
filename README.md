@@ -12,7 +12,7 @@ Code repository of the SURAGH project, developed at the Information Systems Grou
    Note: The aforementioned libraries are a part of the project and are available in the same repository. Please update the path for the referenced libraries.
    
  4. Input/Output: It can be executed directly from the command line
-	-  Open a command prompt window and go to the directory where you saved the SURAGH.
+	-  Open a command prompt window and go to the directory where you saved the SURAGH project code.
 	- `javac SURAGH.java` 
 	- `java SURAGH`
 	
