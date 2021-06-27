@@ -14,7 +14,7 @@ Code repository of the SURAGH project, developed at the Information Systems Grou
  4. Input/Output: It can be executed directly from the command line
 	-  Open a command prompt window and go to the directory where you saved the SURAGH project code.
 	- `javac SURAGH.java` 
-	- `java SURAGH`
+	- `java SURAGH` "arguments"
 	
 or for IDE, you can set the arguments in the `Run Configuration`. 
 
