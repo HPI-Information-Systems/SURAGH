@@ -22,9 +22,9 @@ The algorithm takes two CSV files as input, (1) input file (2) ground truth. The
 The dataset folder contains input files, while the annotation folder includes the ground truth for the input files. In addition, two sample output files have been attached to the repository for reference. 
 
 - Please follow the following order for the input arguments
-	--Input file path
-	--Ground truth file path
+	(1) Input file path
+	(2) Ground truth file path
 	(3) File path for the schema output
-	(4)  File path for detailed results
+	(4) File path for detailed results
 
 
