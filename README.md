@@ -9,5 +9,5 @@ Code repository of the SURAGH project, developed at the Information Systems Grou
 	- univocity-parsers-2.9.1 or its latest version
 	- commons-lang3-3.11
 
-  NOTE: The aforementioned libraries are a part of the project and are available in the same repository. Please update the path for the referenced libraries.
+   NOTE: The aforementioned libraries are a part of the project and are available in the same repository. Please update the path for the referenced libraries.
 
