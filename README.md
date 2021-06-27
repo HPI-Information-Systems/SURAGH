@@ -25,6 +25,10 @@ The dataset folder contains input files, while the annotation folder includes th
 	(1) Input file path
 	(2) Ground truth file path
 	(3) File path for the schema output
-	(4) File path for detailed results
+	(4) File path for the detailed results
 
 
+##GLOBAL THRESHOLD SETTING/TESTING
+(Please refer to the paper for this section) 
+
+We performed experiments using the combinations of row and column thresholds and found the ‘Global Threshold’ for the finest result. The pattern schema and the detailed results are obtained using the global threshold setting. To increase or decrease the set of patterns and test different threshold settings, please update the "row_t" and "column_t" variables for row threshold and column threshold, respectively, in the project class named "Main_Class.java".
