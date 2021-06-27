@@ -21,10 +21,10 @@ or for IDE, you can set the arguments in the `Run Configuration`.
 The algorithm takes two CSV files as input, (1) input file (2) ground truth. The algorithm outputs two TXT files, (1) includes pattern schema for the input file, (2) contains indices of ill- and well-formed records, and the details of false positives, false negative along with precision, recall, and F-1 scores.
 The dataset folder contains input files, while the annotation folder includes the ground truth for the input files. In addition, two sample output files have been attached to the repository for reference. 
 
-Please follow the following order for arguments
+- Please follow the following order for the input arguments
 	(1) Input file path
 	(2) Ground truth file path
 	(3) File path for the schema output
-	(4)   File path for detailed results
+	(4)  File path for detailed results
 
 
