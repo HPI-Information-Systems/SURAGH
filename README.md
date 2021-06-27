@@ -38,5 +38,5 @@ We performed experiments using the combinations of row and column thresholds and
 
 ## Ground Truth File
 
-In a two-column CSV file, the first column contains a string, e.g., "ill formed rows indices" or "well formed rows indices".  The second column contains the row indices for the records mentioned above. (Please check annotation folder for reference)
+A two-column CSV file, the first column contains a string, e.g., "ill formed rows indices" or "well formed rows indices".  The second column contains the row indices for the records mentioned above. (Please check annotation folder for reference)
 
