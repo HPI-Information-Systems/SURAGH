@@ -20,13 +20,13 @@ SURAGH takes a CSV file as input and returns the indicies of ill- and well forme
 	
 or for IDE, you can set the arguments in the `Run Configuration`. 
 
-The algorithm takes CSV files as input and outputs two CSV files, (1) includes pattern schema for the input file, (2) contains indices of ill- and well-formed records.
-Two sample output files (PatternSchema, ResultIndicies) have been attached to the repository for reference. 
+The algorithm takes a CSV file as input and outputs two CSV files, (1) includes pattern schema for the input file, (2) contains indices of ill- and well-formed records.
+The Two sample output files (PatternSchema, ResultIndicies) are attached to the repository for reference. 
 
 - Please follow the following order for the input arguments
 	(1) Input file path
 	(2) File path for the schema output
-	(3) File path for the detailed results
+	(3) File path for the indices of ill- and well-formed records
 
 
 
