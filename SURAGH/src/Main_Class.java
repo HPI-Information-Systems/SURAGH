@@ -43,7 +43,7 @@ import com.univocity.parsers.tsv.TsvParserSettings;
 public class Main_Class {
 	
 static int row_T =1;
-static int col_T = 20;
+static int col_T = 1;
 	
 private static final Line_Break_Class LINE_BREAK_CLASS = new Line_Break_Class();
 private static final Delimiter_Class DELIMITER_CLASS = new Delimiter_Class();
@@ -198,20 +198,19 @@ public static void main(String[] args) {
 	
 	String inputFile = args[0];
 	String fileSchema= args[1];
-	String groundTruth= args[2];
-	String resultIndicies= args[3];
+	String resultIndicies= args[2];
 	
 	
 	
 	try {
-		main_method_object.read_Csv_data(inputFile, fileSchema, groundTruth, resultIndicies);
+		main_method_object.read_Csv_data(inputFile, fileSchema, resultIndicies);
 	} catch (UnsupportedEncodingException | FileNotFoundException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
 }
 
-public void read_Csv_data(String inputFile, String fileSchema, String groundTruth, String resultIndicies) throws UnsupportedEncodingException, FileNotFoundException
+public void read_Csv_data(String inputFile, String fileSchema, String resultIndicies) throws UnsupportedEncodingException, FileNotFoundException
 {
 	   Main_Class readCsvObject = new Main_Class();
 	 
@@ -307,13 +306,13 @@ public void read_Csv_data(String inputFile, String fileSchema, String groundTrut
 //=================================================================================================================================================================  	
 	
 	
- readCsvObject.listItems_individual_columns(columns_recordList, fileSchema, groundTruth, resultIndicies);
+ readCsvObject.listItems_individual_columns(columns_recordList, fileSchema, resultIndicies);
 }
 
 
 
 
-public void listItems_individual_columns(List<String> columnList, String fileSchema, String groundTruth, String resultIndicies)
+public void listItems_individual_columns(List<String> columnList, String fileSchema, String resultIndicies)
 {
 	Main_Class listItems_individual_columns_object = new Main_Class();
 
@@ -1923,6 +1922,7 @@ public void listItems_individual_columns(List<String> columnList, String fileSch
 			   sanitized_output.add(sub_list_);
 			   
 			   int incremental= 0;
+			   
 			   for(int i = 0; i< clean_PLI_results.size(); i++)
 			   	{
 				   incremental++;
@@ -1930,13 +1930,48 @@ public void listItems_individual_columns(List<String> columnList, String fileSch
 				   l.add(incremental);
 				   for(int j = 0; j< clean_PLI_results.get(i).size(); j++)
 				   	{
-					  
+					   
 					   if(j==0)
 					   {
+						   String splitString[] = clean_PLI_results.get(i).get(j).toString().split("<DEL>");
+						   StringBuilder combineString = new StringBuilder();
+						   for(int k=0; k < splitString.length; k++)
+						   {
+							   
+							   boolean flag_quotation = true;
+							   boolean flag_delimiter = false;
+							   
+							   for (int m = 0; m < splitString[k].length(); m++)
+							   {
+								   if (splitString[k].charAt(m) == 34)
+								   {
+									   flag_quotation = !flag_quotation;
+								   }
+								   if (splitString[k].charAt(m) == 44)
+								   {
+									   flag_delimiter = true;
+								   }
+									   
+								  if(flag_delimiter == true && flag_quotation == true)
+								   {
+									  splitString[k] = splitString[k].replace("\"", "\"\"");
+									   break;
+								   }
+							   }
+							   combineString.append(splitString[k]);
+							   if(k != splitString.length-1)
+							   {
+								   combineString.append("<DEL>");
+							   }
+						   }
 						   
-//							 String step1 = StringUtils.join(clean_PLI_results.get(i).get(j).toString(), "\"");
-//							 String step2 = StringUtils.wrap(clean_PLI_results.get(i).get(j).toString(), "\"");
-						     l.add(clean_PLI_results.get(i).get(j));  
+						   
+						     
+						     String updated = combineString.toString();
+						   
+							 String step1 = StringUtils.join(updated, "\"");
+							 String step2 = StringUtils.wrap(updated, "\"");
+						     l.add(step2);  
 						     
 					   }
 					   else if(j == 1)
@@ -1989,49 +2024,49 @@ public void listItems_individual_columns(List<String> columnList, String fileSch
 			
 			// start reading ground truth ..........................................................................................................
 			
-			   CsvParserSettings annotation_settings = new CsvParserSettings();
-			   annotation_settings.detectFormatAutomatically();
-			   
-			   annotation_settings.setIgnoreLeadingWhitespaces(false);
-			   annotation_settings.setIgnoreTrailingWhitespaces(false);
-			   annotation_settings.setKeepQuotes(false);
-			   annotation_settings.setQuoteDetectionEnabled(true);
-			   annotation_settings.setSkipEmptyLines(false);
-			   annotation_settings.setCommentProcessingEnabled(false);
-			   annotation_settings.setMaxCharsPerColumn(1000000);
-			   annotation_settings.setDelimiterDetectionEnabled(true, ',');  
-			   
-			   CsvParser parser = new CsvParser(annotation_settings);
-			   
-			  
-			   List<Record> allRecords = parser.parseAllRecords(new File(groundTruth));
-			   
-			   List<Integer> illFormed_annoatated_data = new ArrayList<Integer>();
-			   List<Integer> wellFormed_annoatated_data = new ArrayList<Integer>();
-			   
-			   for(Record record : allRecords){
-				 
-				   String[] values = record.getValues();
-				   if(!(values.toString().isEmpty()) && values[0].toString().matches("ill formed rows indices"))
-					{
-					   String[] arr = values[1].split(",");
-					   for(String in : arr)
-					   {
-						   illFormed_annoatated_data.add(Integer.parseInt(in)); 
-					   }
-					   
-					}
-				   else if(!(values.toString().isEmpty()) && values[0].toString().matches("well formed rows indices"))
-					{
-					   String[] arr = values[1].split(",");
-					   for(String in : arr)
-					   {
-						   wellFormed_annoatated_data.add(Integer.parseInt(in)); 
-					   }
-					  
-					}
-				  
-			   }
+//			   CsvParserSettings annotation_settings = new CsvParserSettings();
+//			   annotation_settings.detectFormatAutomatically();
+//			   
+//			   annotation_settings.setIgnoreLeadingWhitespaces(false);
+//			   annotation_settings.setIgnoreTrailingWhitespaces(false);
+//			   annotation_settings.setKeepQuotes(false);
+//			   annotation_settings.setQuoteDetectionEnabled(true);
+//			   annotation_settings.setSkipEmptyLines(false);
+//			   annotation_settings.setCommentProcessingEnabled(false);
+//			   annotation_settings.setMaxCharsPerColumn(1000000);
+//			   annotation_settings.setDelimiterDetectionEnabled(true, ',');  
+//			   
+//			   CsvParser parser = new CsvParser(annotation_settings);
+//			   
+//			  
+//			   List<Record> allRecords = parser.parseAllRecords(new File(groundTruth));
+//			   
+//			   List<Integer> illFormed_annoatated_data = new ArrayList<Integer>();
+//			   List<Integer> wellFormed_annoatated_data = new ArrayList<Integer>();
+//			   
+//			   for(Record record : allRecords){
+//				 
+//				   String[] values = record.getValues();
+//				   if(!(values.toString().isEmpty()) && values[0].toString().matches("ill formed rows indices"))
+//					{
+//					   String[] arr = values[1].split(",");
+//					   for(String in : arr)
+//					   {
+//						   illFormed_annoatated_data.add(Integer.parseInt(in)); 
+//					   }
+//					   
+//					}
+//				   else if(!(values.toString().isEmpty()) && values[0].toString().matches("well formed rows indices"))
+//					{
+//					   String[] arr = values[1].split(",");
+//					   for(String in : arr)
+//					   {
+//						   wellFormed_annoatated_data.add(Integer.parseInt(in)); 
+//					   }
+//					  
+//					}
+//				  
+//			   }
 			  
 			for(int i = 0; i<clean_PLI_results.size();i++)
 			{
@@ -2057,59 +2092,59 @@ public void listItems_individual_columns(List<String> columnList, String fileSch
 			    }
 			}
 			// confusion matrix
-			float true_Positive = 0;
-			float false_Negative = 0;
-			float false_Positive = 0;
-			float true_Negative = 0;
-			List<Integer> false_Negative_LIST = new ArrayList<Integer>();
-			List<Integer> false_Positive_LIST = new ArrayList<Integer>();
-			
-			
-			for(Integer in: illFormed_annoatated_data)
-			{
-				if(possible_Outlier_Rows_indicies_LIST.contains(in))
-				{
-					true_Positive++;
-				}
-				else if(parsed_rows_indicies_LIST.contains(in))
-				{
-					false_Negative++;
-					false_Negative_LIST.add(in);
-				}
-			}
-			
-			for(Integer in: wellFormed_annoatated_data)
-			{
-				if(possible_Outlier_Rows_indicies_LIST.contains(in))
-				{
-					false_Positive++;
-					false_Positive_LIST.add(in);
-				}
-				else if(parsed_rows_indicies_LIST.contains(in))
-				{
-					true_Negative++;
-				}
-			}
-			
-			float precision = 0;
-			float recall = 0;
-			float fMeasure = 0;
-			DecimalFormat df = new DecimalFormat("#.#####");
-			
-			precision = true_Positive/ (true_Positive + false_Positive);
-			recall = true_Positive / (true_Positive+ false_Negative);
-			fMeasure = 2*precision*recall/(precision+recall);
-			
-			if(Float.isNaN(precision))
-				precision=0;
-			if(Float.isNaN(recall))
-				recall=0;
-			if(Float.isNaN(fMeasure))
-				fMeasure=0;
-			
-			precision = Float.valueOf(df.format(precision));
-			recall = Float.valueOf(df.format(recall));
-			fMeasure = Float.valueOf(df.format(fMeasure));
+//			float true_Positive = 0;
+//			float false_Negative = 0;
+//			float false_Positive = 0;
+//			float true_Negative = 0;
+//			List<Integer> false_Negative_LIST = new ArrayList<Integer>();
+//			List<Integer> false_Positive_LIST = new ArrayList<Integer>();
+//			
+//			
+//			for(Integer in: illFormed_annoatated_data)
+//			{
+//				if(possible_Outlier_Rows_indicies_LIST.contains(in))
+//				{
+//					true_Positive++;
+//				}
+//				else if(parsed_rows_indicies_LIST.contains(in))
+//				{
+//					false_Negative++;
+//					false_Negative_LIST.add(in);
+//				}
+//			}
+//			
+//			for(Integer in: wellFormed_annoatated_data)
+//			{
+//				if(possible_Outlier_Rows_indicies_LIST.contains(in))
+//				{
+//					false_Positive++;
+//					false_Positive_LIST.add(in);
+//				}
+//				else if(parsed_rows_indicies_LIST.contains(in))
+//				{
+//					true_Negative++;
+//				}
+//			}
+//			
+//			float precision = 0;
+//			float recall = 0;
+//			float fMeasure = 0;
+//			DecimalFormat df = new DecimalFormat("#.#####");
+//			
+//			precision = true_Positive/ (true_Positive + false_Positive);
+//			recall = true_Positive / (true_Positive+ false_Negative);
+//			fMeasure = 2*precision*recall/(precision+recall);
+//			
+//			if(Float.isNaN(precision))
+//				precision=0;
+//			if(Float.isNaN(recall))
+//				recall=0;
+//			if(Float.isNaN(fMeasure))
+//				fMeasure=0;
+//			
+//			precision = Float.valueOf(df.format(precision));
+//			recall = Float.valueOf(df.format(recall));
+//			fMeasure = Float.valueOf(df.format(fMeasure));
 			
 //			
 //			System.out.println("Precision     " + precision);
@@ -2118,46 +2153,46 @@ public void listItems_individual_columns(List<String> columnList, String fileSch
 //			
 			// write parsed and possible outlier rows combined for analysis
 			List parsed_rows_SUBLIST = new ArrayList<>();
-			parsed_rows_SUBLIST.add("Parsed Rows");
+			parsed_rows_SUBLIST.add("Well-Formed Records");
 			parsed_rows_SUBLIST.add(parsed_rows_indicies_LIST);
 			parsed_rows_SUBLIST.add(parsed_rows_indicies_LIST.size());
 			combined_Parsed_and_Outlier_Incdicies_LIST.add(parsed_rows_SUBLIST);
 			
 			
 			List outlier_rows_SUBLIST = new ArrayList<>();
-			outlier_rows_SUBLIST.add("Possible Outliers");
+			outlier_rows_SUBLIST.add("Ill-Formed Records");
 			outlier_rows_SUBLIST.add(possible_Outlier_Rows_indicies_LIST);
 			outlier_rows_SUBLIST.add(possible_Outlier_Rows_indicies_LIST.size());
 			combined_Parsed_and_Outlier_Incdicies_LIST.add(outlier_rows_SUBLIST);
 			
-			List false_negative_SUBLIST = new ArrayList<>();
-			false_negative_SUBLIST.add("False Negatives");
-			false_negative_SUBLIST.add(false_Negative_LIST);
-			false_negative_SUBLIST.add(false_Negative_LIST.size());
-			combined_Parsed_and_Outlier_Incdicies_LIST.add(false_negative_SUBLIST);
-			
-			
-			List false_positive_SUBLIST = new ArrayList<>();
-			false_positive_SUBLIST.add("False Positives");
-			false_positive_SUBLIST.add(false_Positive_LIST);
-			false_positive_SUBLIST.add(false_Positive_LIST.size());
-			combined_Parsed_and_Outlier_Incdicies_LIST.add(false_positive_SUBLIST);
-			
-			
-			List confiusion_matrix_result = new ArrayList<>();
-			confiusion_matrix_result.add("Precision   "+precision);
-			confiusion_matrix_result.add("Recall   "+recall);
-			confiusion_matrix_result.add("F Measure   "+fMeasure);
-			combined_Parsed_and_Outlier_Incdicies_LIST.add(confiusion_matrix_result);
+//			List false_negative_SUBLIST = new ArrayList<>();
+//			false_negative_SUBLIST.add("False Negatives");
+//			false_negative_SUBLIST.add(false_Negative_LIST);
+//			false_negative_SUBLIST.add(false_Negative_LIST.size());
+//			combined_Parsed_and_Outlier_Incdicies_LIST.add(false_negative_SUBLIST);
+//			
+//			
+//			List false_positive_SUBLIST = new ArrayList<>();
+//			false_positive_SUBLIST.add("False Positives");
+//			false_positive_SUBLIST.add(false_Positive_LIST);
+//			false_positive_SUBLIST.add(false_Positive_LIST.size());
+//			combined_Parsed_and_Outlier_Incdicies_LIST.add(false_positive_SUBLIST);
+//			
+//			
+//			List confiusion_matrix_result = new ArrayList<>();
+//			confiusion_matrix_result.add("Precision   "+precision);
+//			confiusion_matrix_result.add("Recall   "+recall);
+//			confiusion_matrix_result.add("F Measure   "+fMeasure);
+//			combined_Parsed_and_Outlier_Incdicies_LIST.add(confiusion_matrix_result);
 			
 			
 			 List<List<Object>> sanitized__indices_output = new ArrayList<List<Object>>();
 			
-//			 List sub_list_indicies_ = new ArrayList<>();
-//			 sub_list_indicies_.add("Output Type");
-//			 sub_list_indicies_.add("Row Indicies");
-//			 sub_list_indicies_.add("Size");
-//			 sanitized__indices_output.add(sub_list_indicies_);
+			 List sub_list_indicies_ = new ArrayList<>();
+			 sub_list_indicies_.add("Output Type");
+			 sub_list_indicies_.add("Row Indicies");
+			 sub_list_indicies_.add("Size");
+			 sanitized__indices_output.add(sub_list_indicies_);
 			   
 			   
 			   for(int i = 0; i< combined_Parsed_and_Outlier_Incdicies_LIST.size(); i++)
@@ -2169,26 +2204,18 @@ public void listItems_individual_columns(List<String> columnList, String fileSch
 					  
 					   if(j==0)
 					   {
-						   
-//							 String step1 = StringUtils.join(combined_Parsed_and_Outlier_Incdicies_LIST.get(i).get(j).toString(), "\"");
-//							 String step2 = StringUtils.wrap(combined_Parsed_and_Outlier_Incdicies_LIST.get(i).get(j).toString(), "\"");
 						     l.add(combined_Parsed_and_Outlier_Incdicies_LIST.get(i).get(j));  
 						     
 					   }
 					   else if(j == 1)
 					   {
-						   if(i!= combined_Parsed_and_Outlier_Incdicies_LIST.size()-1)
-						   {
+						   
 							   String s = combined_Parsed_and_Outlier_Incdicies_LIST.get(i).get(j).toString().substring(1,combined_Parsed_and_Outlier_Incdicies_LIST.get(i).get(j).toString().length()-1);
 							   
 							    String step1 = StringUtils.join(s, "\"");
 							    String step2 = StringUtils.wrap(s, "\"");
-								 l.add(step2);  
-						   }
-						   else
-						   {
-							   l.add(combined_Parsed_and_Outlier_Incdicies_LIST.get(i).get(j));
-						   }
+								l.add(step2);  
+						   
 							   
 						 
 					   }
