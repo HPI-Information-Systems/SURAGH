@@ -43,7 +43,7 @@ import com.univocity.parsers.tsv.TsvParserSettings;
 public class Main_Class {
 	
 static int row_T =1;
-static int col_T = 1;
+static int col_T = 20;
 	
 private static final Line_Break_Class LINE_BREAK_CLASS = new Line_Break_Class();
 private static final Delimiter_Class DELIMITER_CLASS = new Delimiter_Class();
