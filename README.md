@@ -1,6 +1,8 @@
 # SURAGH: Syntactic Pattern Matching to Identify Ill-Formed Records
 Code repository of the SURAGH project, developed at the Information Systems Group of the Hasso Plattner Institute.
 
+SURAGH takes a CSV file as input and returns the indicies of ill- and well formed records along with the file schema.
+
 ## Setup
 
 1. The code is written using Java 8.
@@ -18,14 +20,13 @@ Code repository of the SURAGH project, developed at the Information Systems Grou
 	
 or for IDE, you can set the arguments in the `Run Configuration`. 
 
-The algorithm takes two CSV files as input, (1) input file (2) ground truth. The algorithm outputs two TXT files, (1) includes pattern schema for the input file, (2) contains indices of ill- and well-formed records, and the details of false positives, false negative along with precision, recall, and F-1 scores.
-The dataset folder contains input files, while the annotation folder includes the ground truth for the input files. In addition, two sample output files have been attached to the repository for reference. 
+The algorithm takes CSV files as input. The algorithm outputs two CSV files, (1) includes pattern schema for the input file, (2) contains indices of ill- and well-formed records.
+Two sample output files (PatternSchema, Results_indicies) have been attached to the repository for reference. 
 
 - Please follow the following order for the input arguments
 	(1) Input file path
-	(2) Ground truth file path
-	(3) File path for the schema output
-	(4) File path for the detailed results
+	(2) File path for the schema output
+	(3) File path for the detailed results
 
 
 
@@ -33,10 +34,10 @@ The dataset folder contains input files, while the annotation folder includes th
 ## Global Threshold Setting
 (Please refer to the paper for this section) 
 
-We performed experiments using the combinations of row and column thresholds and found the "Global Threshold setting" for the finest result. The pattern schema and the detailed results are obtained using the global threshold setting. To increase or decrease the set of patterns and test different threshold settings, please update the "row_t" and "column_t" variables for row threshold and column threshold, respectively, in the project class named "Main_Class.java".
+We performed experiments using the combinations of row and column thresholds and found the "Global Threshold setting" for the finest result. The pattern schema and the detailed results are obtained using the global threshold setting. To increase or decrease the set of patterns and test different threshold settings, please update the "row_t" and "col_t" variables for row threshold and column threshold, respectively, in the project class named "Main_Class.java".
 
 
 ## Ground Truth File
 
-In a two-column CSV file, the first column contains a string, e.g., "ill formed rows indices" or "well formed rows indices".  The second column contains the row indices for the records mentioned above. (Please check annotation folder for reference)
+A two-column CSV file, the first column contains a string, e.g., "ill formed rows indices" or "well formed rows indices".  The second column contains the row indices for the records mentioned above. (Please check annotation folder for reference)
 
