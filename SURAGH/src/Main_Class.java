@@ -1917,7 +1917,7 @@ public void listItems_individual_columns(List<String> columnList, String fileSch
 			   List sub_list_ = new ArrayList<>();
 			   sub_list_.add("#");
 			   sub_list_.add("Dominant Patterns");
-			   sub_list_.add("Complying Row Indicies");
+			   sub_list_.add("Complying Row Indices");
 			   sub_list_.add("Size");
 			   sanitized_output.add(sub_list_);
 			   
@@ -2190,7 +2190,7 @@ public void listItems_individual_columns(List<String> columnList, String fileSch
 			
 			 List sub_list_indicies_ = new ArrayList<>();
 			 sub_list_indicies_.add("Output Type");
-			 sub_list_indicies_.add("Row Indicies");
+			 sub_list_indicies_.add("Row Indices");
 			 sub_list_indicies_.add("Size");
 			 sanitized__indices_output.add(sub_list_indicies_);
 			   
