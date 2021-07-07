@@ -1,7 +1,7 @@
 # SURAGH: Syntactic Pattern Matching to Identify Ill-Formed Records
 Code repository of the SURAGH project, developed at the Information Systems Group of the Hasso Plattner Institute.
 
-SURAGH takes a CSV file as input and returns the indices of ill- and well formed records along with the file schema.
+SURAGH takes a CSV file as input and returns the indices of ill- and well-formed records along with the file schema.
 
 ## Setup
 
