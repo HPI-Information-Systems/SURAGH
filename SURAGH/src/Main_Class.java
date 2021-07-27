@@ -359,7 +359,7 @@ public void listItems_individual_columns(List<String> columnList, String fileSch
 			
 			if(!(columnList.get(i) == null) && !isAllASCII(columnList.get(i)))				
 			{
-				System.out.println("Please use file that contains ASCII characters!");
+				System.out.println("Please use a file that contains ASCII characters!");
 				System.exit(0);
 			}
 			
