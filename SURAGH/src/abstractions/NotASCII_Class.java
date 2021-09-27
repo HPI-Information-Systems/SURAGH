@@ -1,3 +1,4 @@
+package abstractions;
 
 public class NotASCII_Class {
   public  NotASCII_Class()

@@ -11,6 +11,29 @@ import java.util.regex.Pattern;
 
 import javax.accessibility.AccessibleBundle;
 
+import abstractions.Arithmetic_Oprt_Class;
+import abstractions.Brackets_Class;
+import abstractions.Candidate_Delimiter_Class;
+import abstractions.Date_Class;
+import abstractions.Delimiter_Class;
+import abstractions.Digit_Class;
+import abstractions.EmptyValues_Class;
+import abstractions.Full_Text_Class;
+import abstractions.Line_Break_Class;
+import abstractions.Lower_Letter_Class;
+import abstractions.MissingValues_Class;
+import abstractions.NotASCII_Class;
+import abstractions.Number_Class;
+import abstractions.Quotation_Class;
+import abstractions.Sequence_Digit_Class;
+import abstractions.Sequence_LowerLetter_Class;
+import abstractions.Sequence_UpperLetter_Class;
+import abstractions.Space_Class;
+import abstractions.Symbol_Class;
+import abstractions.Text_Class;
+import abstractions.Upper_Letter_Class;
+import abstractions.WhiteSpace_Class;
+
 
 
 public class Abstraction_Primitives {
@@ -147,23 +170,23 @@ public class Abstraction_Primitives {
           }
   	}
     
-    public void delimiter_Check(int delimiter)
-    {
-    	boolean flag_delimiter_check = false;
-    	
-    	if(delimiter == 0)
-    	{
-    		for(Entry<Integer, Object> entry: hashMap_abstraction_premitive.entrySet()) { 
-    			if(entry.getValue() == QUOTATION_CLASS)
-     	    		 flag_delimiter_check = ! flag_delimiter_check;
-    			if ((entry.getValue() instanceof Character && (char)entry.getValue() == 44)){	
-    				if(!flag_delimiter_check)
-	 	    		    hashMap_abstraction_premitive.put(entry.getKey() , DELIMITER_CLASS.getRepresentationCharachter((char)entry.getValue()));
-    				else
-    					hashMap_abstraction_premitive.put(entry.getKey(), SYMBOL_CLASS);
-    			}
-    		}
-    	}
+//    public void delimiter_Check(int delimiter)
+//    {
+//    	boolean flag_delimiter_check = false;
+//    	
+//    	if(delimiter == 0)
+//    	{
+//    		for(Entry<Integer, Object> entry: hashMap_abstraction_premitive.entrySet()) { 
+//    			if(entry.getValue() == QUOTATION_CLASS)
+//     	    		 flag_delimiter_check = ! flag_delimiter_check;
+//    			if ((entry.getValue() instanceof Character && (char)entry.getValue() == 44)){	
+//    				if(!flag_delimiter_check)
+//	 	    		    hashMap_abstraction_premitive.put(entry.getKey() , DELIMITER_CLASS.getRepresentationCharachter((char)entry.getValue()));
+//    				else
+//    					hashMap_abstraction_premitive.put(entry.getKey(), SYMBOL_CLASS);
+//    			}
+//    		}
+//    	}
     	
 //    	else if(delimiter == 1)
 //    	{
@@ -246,7 +269,7 @@ public class Abstraction_Primitives {
 // 			}
 //     	}
     	
-    }
+//    }
     
     
     public void candidate_delimiter_Check( )

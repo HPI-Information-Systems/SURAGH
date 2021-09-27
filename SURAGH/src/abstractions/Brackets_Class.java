@@ -1,5 +1,5 @@
-
-public class Brackets_Class implements IRepresentation {
+package abstractions;
+public class Brackets_Class implements IAbstraction {
 	
 	private String result; 
 	
@@ -20,21 +20,22 @@ public class Brackets_Class implements IRepresentation {
 	@Override
 	public String toString() {
 		
-	  return "<BRKT>";	
+	  return getRepresentation();	
 	}
 	
+	
+
 	@Override
-	public String getRepresentationCharachter(char input) {
-		
-		String set_value = null;
-		if((int)input == 40 || (int)input == 91 || (int)input == 123 )
-			set_value = "(";
-			
-		else if((int)input == 93|| (int)input == 41 || (int)input == 125)
-			set_value = ")";
+	public String getRegex() {
 		
 		
-		return set_value;	
+		return "[\\(\\)\\[\\]{\\}]";
+	}
+
+	@Override
+	public String getRepresentation() {
+		
+		return "<BRKT>";
 	}
 
 }
