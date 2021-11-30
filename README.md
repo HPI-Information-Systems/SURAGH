@@ -1,7 +1,7 @@
 # SURAGH: Syntactic Pattern Matching to Identify Ill-Formed Records
 Code repository of the SURAGH project, developed at the Information Systems Group of the Hasso Plattner Institute.
 
-SURAGH takes a CSV file as input and returns the indices of ill- and well-formed records along with the file schema.
+SURAGH takes a CSV file as input and returns the indices of ill- and well-formed records along with the file's pattern schema.
 
 ## Setup
 
@@ -21,7 +21,7 @@ SURAGH takes a CSV file as input and returns the indices of ill- and well-formed
 or for IDE, you can set the arguments in the `Run Configuration`. 
 
 The algorithm takes a CSV file as input and outputs two CSV files, (1) includes pattern schema for the input file, (2) contains indices of ill- and well-formed records.
-The Two sample output files (PatternSchema, ResultIndices) are attached to the repository for reference. 
+The three sample (input and output) files including (InputFile, PatternSchema, ResultIndices) are attached to the repository for the reference. The input file is the same one we used as an example in the paper.
 
 - Please follow the following order for the input arguments
 	(1) Input file path
