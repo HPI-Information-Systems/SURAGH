@@ -10,8 +10,10 @@ SURAGH takes a CSV file as input and returns the indices of ill- and well-formed
 3. Include the following external libraries: 
 	- univocity-parsers-2.9.1 or its latest version
 	- commons-lang3-3.11
+	- guava-31.0.1-jre
+	- json-20210307
 
-   Note: The aforementioned libraries are a part of the project and are available in the same repository. Please update the path for the referenced libraries.
+   Note: The aforementioned libraries are a part of the project and are available in the same repository. Please update the path for the referenced libraries. To save the output in JSON format, use the method of the JsonWriter class in the PatternSchema class.
    
  4. Input/Output: It can be executed directly from the command line
 	-  Open a command prompt window and go to the directory where you saved the SURAGH project code.
