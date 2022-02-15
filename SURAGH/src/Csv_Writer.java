@@ -31,6 +31,11 @@ public class Csv_Writer {
 				sub_list_.add("Size");
 				   
 				sanitized_output.add(sub_list_);
+				
+				for(int i = 0; i<list.size(); i++)
+				{
+					list.get(i).set(1, list.get(i).get(1).toString().replaceAll("[\\[ \\]\\s]", ""));
+				}
 				sanitized_output.addAll(list);
 				   
 				for (int i = 0; i < sanitized_output.size(); i++) 
@@ -61,11 +66,11 @@ public class Csv_Writer {
 				sub_list_indicies.add("Size");
 				
 				sub_list_indicies_well.add("Well-Formed Records");
-				sub_list_indicies_well.add(parsed_rows_indicies_LIST);
+				sub_list_indicies_well.add(parsed_rows_indicies_LIST.toString().replaceAll("[\\[ \\]\\s]", ""));
 				sub_list_indicies_well.add(parsed_rows_indicies_LIST.size());
 				
 				sub_list_indicies_ill.add("Ill-Formed Records");
-				sub_list_indicies_ill.add(possible_Outlier_Rows_indicies_LIST);
+				sub_list_indicies_ill.add(possible_Outlier_Rows_indicies_LIST.toString().replaceAll("[\\[ \\]\\s]", ""));
 				sub_list_indicies_ill.add(possible_Outlier_Rows_indicies_LIST.size());
 				
 				sanitized__indices_output.add(sub_list_indicies);
