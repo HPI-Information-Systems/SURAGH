@@ -14,12 +14,14 @@ import org.apache.commons.lang3.StringUtils;
 import abstractions.EmptyValues_Class;
 import abstractions.Full_Text_Class;
 import abstractions.MissingValues_Class;
+import abstractions.Padded_Class;
 
 
 
 
 public class PatternGeneration {
 
+private static final Padded_Class PADDED_CLASS = new Padded_Class();
 private static final Full_Text_Class FULL_TEXT_CLASS = new Full_Text_Class();
 final static Abstraction_Primitives abstraction_primitive_object_csvtesting = new Abstraction_Primitives();	
 private static final MissingValues_Class MISSING_VALUES_CLASS = new MissingValues_Class();
@@ -994,9 +996,9 @@ static List<Dependency_Class> specified_depdendencies = new ArrayList<Dependency
 							{																	 
 								List appendNullList = new ArrayList<>();						
 																								
-								
-								appendNullList.add(EMPTY_VALUES_CLASS.toString());
-								appendNullList.add(MISSING_VALUES_CLASS.toString());
+								appendNullList.add(PADDED_CLASS.toString());
+//								appendNullList.add(EMPTY_VALUES_CLASS.toString());
+//								appendNullList.add(MISSING_VALUES_CLASS.toString());
 								listoflist.add(listoflist.size()-1,appendNullList);
 							}
 						}

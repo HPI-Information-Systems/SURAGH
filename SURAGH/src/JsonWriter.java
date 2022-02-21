@@ -14,7 +14,7 @@ public class JsonWriter {
          
             JSONObject objItem =  new JSONObject();
             	            
-            objItem.put("Dominant Patterns",  list.get(i).get(0));
+            objItem.put("Dominant Patterns",  list.get(i).get(0).toString().replace("<PD>", "")); 
             objItem.put("Complying Row Indices",  list.get(i).get(1));
             objItem.put("Size",  list.get(i).get(2));
            

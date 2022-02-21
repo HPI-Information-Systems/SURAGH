@@ -34,6 +34,7 @@ public class Csv_Writer {
 				
 				for(int i = 0; i<list.size(); i++)
 				{
+					list.get(i).set(0, list.get(i).get(0).toString().replace("<PD>", ""));
 					list.get(i).set(1, list.get(i).get(1).toString().replaceAll("[\\[ \\]\\s]", ""));
 				}
 				sanitized_output.addAll(list);
