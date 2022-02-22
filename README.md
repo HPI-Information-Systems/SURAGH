@@ -20,6 +20,7 @@ SURAGH takes a CSV file as input and returns the indices of ill- and well-formed
 	`OR`
 	
 	-  Execute `JAR` file attached to this repository. Open a command prompt window and go to the directory where you saved the SURAGH.jar, for example, C:\Users\UserName\Desktop>java -jar SURAGH.jar "C:\Users\UserName\Desktop\InputFile.csv" "C:\Users\UserName\Desktop\PatternSchema.csv" "C:\Users\UserName\Desktop\ResultIndices.csv
+       
        `OR`
        
        - For IDE, you can set the arguments in the `Run Configuration`. 
