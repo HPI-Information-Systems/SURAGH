@@ -16,11 +16,11 @@ SURAGH takes a CSV file as input and returns the indices of ill- and well-formed
    Note: The aforementioned libraries are a part of the project and are available in the same repository. Please update the path for the referenced libraries. To save the output in JSON format, use the method of the JsonWriter class in the PatternSchema class.
    
  4. Input/Output: It can be executed directly from the command line
-	-  Open a command prompt window and go to the directory where you saved the SURAGH project code.
-	- `javac SURAGH.java` 
-	- `java SURAGH` "arguments"
-	
-or for IDE, you can set the arguments in the `Run Configuration`. 
+	-  Open a command prompt window and go to the directory where you saved the SURAGH project code, use `javac` `java` commands to compile and run the program. Note -- entry point is `Main_Class.java`.  
+	`OR´
+	-  Execute `JAR` file attached to this repository. Open a command prompt window and go to the directory where you saved the SURAGH.jar, for example, C:\Users\UserName\Desktop>java -jar SURAGH.jar "C:\Users\UserName\Desktop\InputFile.csv" "C:\Users\UserName\Desktop\PatternSchema.csv" "C:\Users\UserName\Desktop\ResultIndices.csv
+       `OR´
+       - For IDE, you can set the arguments in the `Run Configuration`. 
 
 The algorithm takes a CSV file as input and outputs two CSV files, (1) includes pattern schema for the input file, (2) contains indices of ill- and well-formed records.
 The three sample (input and output) files including (InputFile, PatternSchema, ResultIndices) are attached to the repository for the reference. The input file is the same one we used as an example in the paper.
