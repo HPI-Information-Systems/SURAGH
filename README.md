@@ -17,12 +17,15 @@ SURAGH takes a CSV file as input and returns the indices of ill- and well-formed
    
  4. Input/Output: It can be executed directly from the command line
 	-  Open a command prompt window and go to the directory where you saved the SURAGH project code, use `javac` and `java` commands to compile and run the program. Note -- entry point is `Main_Class.java`.  
-	-  For IDE, you can set the arguments in the `Run Configuration`. 
+	
+	 `OR`
+	     
+	-  For the IDE, import SURAGH as a project and you can set the arguments in the `Run Configuration`. 
+	
 	`OR`
 	
 	-  Execute `JAR` file attached to this repository. Open a command prompt window and go to the directory where you saved the SURAGH.jar, for example, `C:\Users\UserName\Desktop>`. Run the jar file with the following command and setting `java -jar SURAGH.jar "C:\Users\UserName\Desktop\InputFile.csv" "C:\Users\UserName\Desktop\PatternSchema.csv" "C:\Users\UserName\Desktop\ResultIndices.csv`. 
        
-       `OR`
        
 The algorithm takes a CSV file as input and outputs two CSV files, (1) includes pattern schema for the input file, (2) contains indices of ill- and well-formed records.
 The three sample (input and output) files including (InputFile, PatternSchema, ResultIndices) are attached to the repository for the reference. The input file is the same one we used as an example in the paper.
