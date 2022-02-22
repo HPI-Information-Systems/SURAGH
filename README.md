@@ -17,9 +17,11 @@ SURAGH takes a CSV file as input and returns the indices of ill- and well-formed
    
  4. Input/Output: It can be executed directly from the command line
 	-  Open a command prompt window and go to the directory where you saved the SURAGH project code, use `javac` `java` commands to compile and run the program. Note -- entry point is `Main_Class.java`.  
-	`OR´
+	`OR`
+	
 	-  Execute `JAR` file attached to this repository. Open a command prompt window and go to the directory where you saved the SURAGH.jar, for example, C:\Users\UserName\Desktop>java -jar SURAGH.jar "C:\Users\UserName\Desktop\InputFile.csv" "C:\Users\UserName\Desktop\PatternSchema.csv" "C:\Users\UserName\Desktop\ResultIndices.csv
-       `OR´
+       `OR`
+       
        - For IDE, you can set the arguments in the `Run Configuration`. 
       
 
