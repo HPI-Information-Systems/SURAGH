@@ -16,7 +16,7 @@ SURAGH takes a CSV file as input and returns the indices of ill- and well-formed
    Note: The aforementioned libraries are a part of the project and are available in the same repository. Please update the path for the referenced libraries. To save the output in JSON format, use the method of the JsonWriter class in the PatternSchema class.
    
  4. Input/Output: It can be executed directly from the command line
-	-  Open a command prompt window and go to the directory where you saved the SURAGH project code, use `javac` `java` commands to compile and run the program. Note -- entry point is `Main_Class.java`.  
+	-  Open a command prompt window and go to the directory where you saved the SURAGH project code, use `javac` and `java` commands to compile and run the program. Note -- entry point is `Main_Class.java`.  
 	-  For IDE, you can set the arguments in the `Run Configuration`. 
 	`OR`
 	
