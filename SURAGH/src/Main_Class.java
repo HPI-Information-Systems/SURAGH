@@ -79,20 +79,20 @@ static String univocityDetetced_delimiter ;
 	
 	public void dataManipulation(List<String> columnList, String fileSchema, String resultIndicies)
 	{
-		   PatternGeneration patternGeneration_object = new PatternGeneration();  // to generate patterns for each column value 
-		   PruningPatterns  pruningPatterns_object = new PruningPatterns();     // to prune patterns for each column value 
-		   PatternSchema patternSchema_Object = new PatternSchema();            // row pattern generation and sanitized output
+		   PatternGeneration patternGeneration_object = new PatternGeneration();  
+		   PruningPatterns  pruningPatterns_object = new PruningPatterns();    
+		   PatternSchema patternSchema_Object = new PatternSchema();       
 		   
 		   List<List<Object>> output_patterns_input_data = new ArrayList<List<Object>>(); 
 		   
-		   Map<Integer, List<List<String>>> map_Combined_listoflist_results = new LinkedHashMap<Integer, List<List<String>>>();  // Main_Class definition "map_Combined_listoflist_results"
-		   map_Combined_listoflist_results = patternGeneration_object.patternComputation(columnList, listSize, univocityDetetced_delimiter); // get results from PatternGeneration "map_Combined_listoflist_results"
+		   Map<Integer, List<List<String>>> map_Combined_listoflist_results = new LinkedHashMap<Integer, List<List<String>>>();  
+		   map_Combined_listoflist_results = patternGeneration_object.patternComputation(columnList, listSize, univocityDetetced_delimiter); 
 		   
 		   
-		   List<List<Object>> optimal_pattern = new ArrayList<List<Object>>(); // Main_Class definition "optimal_pattern"
-		   optimal_pattern = pruningPatterns_object.patternWeights_patternPruning(map_Combined_listoflist_results, col_T, row_T, rowCount); // send "map_Combined_listoflist_results" to PruningPatterns to get optimal patterns
+		   List<List<Object>> optimal_pattern = new ArrayList<List<Object>>(); 
+		   optimal_pattern = pruningPatterns_object.patternWeights_patternPruning(map_Combined_listoflist_results, col_T, row_T, rowCount);  
 		   
-		   output_patterns_input_data = patternSchema_Object.schemaGeneration(row_T, all_rows_list, optimal_pattern, fileSchema, resultIndicies);  // for schema generation and sanitized output
+		   output_patterns_input_data = patternSchema_Object.schemaGeneration(row_T, all_rows_list, optimal_pattern, fileSchema, resultIndicies); 
 		   
 	}	
 
@@ -178,17 +178,6 @@ static String univocityDetetced_delimiter ;
 		   for(String column : columns_recordList){
 				 //System.out.println("column value  "+column);
 		   }
-		   
-		  for(int i = 0; i < columns_recordList.size(); i++)
-		  {
-			  //System.out.print(columns_recordList.get(i));
-	//		  for(int j = 0; j< columns_recordList.get(i).length(); j++)
-	//		  {
-	//			  char ch = columns_recordList.get(i).charAt(j);	// to print column values character by character 
-	//			  System.out.println((int)ch);
-	//		  }
-			  
-		  }
 			  
 	 return columns_recordList;
 	 

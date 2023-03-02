@@ -39,7 +39,7 @@ public class PatternSchema {
 				for (int i = 1; i < optimal_pattern.size();i++)
 		        {
 
-		            temp = compare(temp, (ArrayList<Object>) optimal_pattern.get(i), threshold);   // incremental pattern generation 
+		            temp = compare(temp, (ArrayList<Object>) optimal_pattern.get(i), threshold);   
 		        }	
 			}
 	        catch(Exception ex)
@@ -106,7 +106,6 @@ public class PatternSchema {
 			List<Integer> possible_Outlier_Rows_indicies_LIST = new ArrayList<Integer>();
 			for (Integer item : all_rows_list) {
 			    if (parsed_rows_indicies_LIST.contains(item)) {
-			       // duplicateList.add(item);
 			    } else {
 			    	possible_Outlier_Rows_indicies_LIST.add(item);
 			    }

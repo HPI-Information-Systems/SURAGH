@@ -170,108 +170,6 @@ public class Abstraction_Primitives {
           }
   	}
     
-//    public void delimiter_Check(int delimiter)
-//    {
-//    	boolean flag_delimiter_check = false;
-//    	
-//    	if(delimiter == 0)
-//    	{
-//    		for(Entry<Integer, Object> entry: hashMap_abstraction_premitive.entrySet()) { 
-//    			if(entry.getValue() == QUOTATION_CLASS)
-//     	    		 flag_delimiter_check = ! flag_delimiter_check;
-//    			if ((entry.getValue() instanceof Character && (char)entry.getValue() == 44)){	
-//    				if(!flag_delimiter_check)
-//	 	    		    hashMap_abstraction_premitive.put(entry.getKey() , DELIMITER_CLASS.getRepresentationCharachter((char)entry.getValue()));
-//    				else
-//    					hashMap_abstraction_premitive.put(entry.getKey(), SYMBOL_CLASS);
-//    			}
-//    		}
-//    	}
-    	
-//    	else if(delimiter == 1)
-//    	{
-//    		for(Entry<Integer, Object> entry: hashMap_abstraction_premitive.entrySet()) { 
-//    			if(entry.getValue() == QUOTATION_CLASS)
-//     	    		flag_delimiter_check = ! flag_delimiter_check;
-//    			if ((entry.getValue() instanceof Character && (char)entry.getValue() == 59)){	
-//    				if(!flag_delimiter_check)
-//	 	    		    hashMap_abstraction_premitive.put(entry.getKey() , DELIMITER_CLASS.getRepresentationCharachter((char)entry.getValue()));
-//    				else
-//    					hashMap_abstraction_premitive.put(entry.getKey(), SYMBOL_CLASS);
-//    			}
-//    		}
-//    	}
-//    		
-//    	
-//    	else if(delimiter == 2)
-//    	{
-//    		for(Entry<Integer, Object> entry: hashMap_abstraction_premitive.entrySet()) { 
-//    			if(entry.getValue() == QUOTATION_CLASS)
-//     	    		 flag_delimiter_check = ! flag_delimiter_check;
-//    			if ((entry.getValue() instanceof Character && (char)entry.getValue() == 58)){	
-//    				if(!flag_delimiter_check)
-//	 	    		    hashMap_abstraction_premitive.put(entry.getKey() , DELIMITER_CLASS.getRepresentationCharachter((char)entry.getValue()));
-//    				else
-//    					hashMap_abstraction_premitive.put(entry.getKey(), SYMBOL_CLASS);
-//    			}
-//    		}
-//    	}
-//    	
-//    	else if(delimiter == 3)
-//    	{
-//    		for(Entry<Integer, Object> entry: hashMap_abstraction_premitive.entrySet()) { 
-//    			if(entry.getValue() == QUOTATION_CLASS)
-//     	    		 flag_delimiter_check = ! flag_delimiter_check;
-//    			if ((entry.getValue() instanceof Character && (char)entry.getValue() == 124)){	
-//    				if(!flag_delimiter_check)
-//	 	    		    hashMap_abstraction_premitive.put(entry.getKey() , DELIMITER_CLASS.getRepresentationCharachter((char)entry.getValue()));
-//    				else
-//    					hashMap_abstraction_premitive.put(entry.getKey(), SYMBOL_CLASS);
-//    			}
-//    		}
-//    	}
-//    		
-//    	else if(delimiter == 4)
-//    	{
-//    		for(Entry<Integer, Object> entry: hashMap_abstraction_premitive.entrySet()) { 
-//    			if(entry.getValue() == QUOTATION_CLASS)
-//     	    		 flag_delimiter_check = ! flag_delimiter_check;
-//    			if ((entry.getValue() instanceof Character && (char)entry.getValue() == 9)){	
-//    				if(!flag_delimiter_check)
-//	 	    		    hashMap_abstraction_premitive.put(entry.getKey() , DELIMITER_CLASS.getRepresentationCharachter((char)entry.getValue()));
-//    				else
-//    					hashMap_abstraction_premitive.put(entry.getKey(), SYMBOL_CLASS);
-//    			}
-//    		}
-//    	}
-//    	
-    	
-//    	for(Entry<Integer, Object> entry: hashMap_abstraction_premitive.entrySet()) { 
-//    		if(entry.getValue() == QUOTATION_CLASS)
-//	    		 flag_delimiter_check = ! flag_delimiter_check;
-//    			if ((entry.getValue() instanceof Character) && (char)entry.getValue() == format.getDelimiter())
-//	 			{
-//    				if(!flag_delimiter_check)
-//	 	    		    hashMap_abstraction_premitive.put(entry.getKey() , DELIMITER_CLASS.getRepresentationCharachter((char)entry.getValue()));
-//    				else
-//    					hashMap_abstraction_premitive.put(entry.getKey(), SYMBOL_CLASS);
-//	 			}
-//    		
-//    	   }
-    
-    	
-    		
-    		
-//     	for(int i=0; i<=stringBuilder_abstraction_premitive.length()-1; i++) {
-// 	    	if ((int)stringBuilder_abstraction_premitive.charAt(i) == format.getDelimiter())
-// 			{
-// 	    		hashMap_abstraction_premitive.put(i, DELIMITER_CLASS.getRepresentationCharachter(stringBuilder_abstraction_premitive.charAt(i)));
-// 			}
-//     	}
-    	
-//    }
-    
-    
     public void candidate_delimiter_Check( )
 	  {
     
@@ -348,36 +246,6 @@ public class Abstraction_Primitives {
     	
     	hashMap_abstraction_premitive.clear();
 		hashMap_abstraction_premitive.put(0, MISSING_VALUES_CLASS);
-//       List<Object> mapTOlist = new ArrayList<Object>();
-//	   StringBuilder mapToListSB = new StringBuilder();	
-//	   for(Entry<Integer, Object> entry: hashMap_abstraction_premitive.entrySet())
-//   	    {
-//			if((entry.getValue() instanceof Character))
-//			{
-//				mapToListSB.append(entry.getValue());
-//			}
-//			else
-//   	        mapTOlist.add(entry.getValue());
-//   	   }
-//		
-//		for(int index = 0 ; index< mapTOlist.size(); index++)
-//    	{
-//			if(mapTOlist.get(index) == WHITE_SPACES_CLASS || mapTOlist.get(index) == SEQUENCE_WHITE_SPACES || mapTOlist.get(index) == QUOTATION_CLASS||
-//					mapTOlist.get(index).toString().matches("\t") )
-//			{
-//			
-//				hashMap_abstraction_premitive.clear();
-//				hashMap_abstraction_premitive.put(index, MISSING_VALUES_CLASS);
-//			}
-//    	}
-//		
-//		
-//		if( mapToListSB.toString().contains("NULL") || mapToListSB.toString().contains("null") ||
-//				mapToListSB.toString().contains("n,a") || mapToListSB.toString().contains("NA") || mapToListSB.toString().contains("NaN"))
-//		{
-//			hashMap_abstraction_premitive.clear();
-//			hashMap_abstraction_premitive.put(0, MISSING_VALUES_CLASS);
-//		}
     }
     
     public void text_format_Check()   
@@ -397,7 +265,7 @@ public class Abstraction_Primitives {
 		
     	for(int index = 0 ; index< mapTOlist.size(); index++)
     	{
-    		//Object next_mapValue = hashMap_abstraction_premitive.get(entry.getKey()+1);
+
     		if( mapTOlist.get(index) == UPPER_LETTER_CLASS || mapTOlist.get(index)== SEQUENCE_UPPER_LETTER_CLASS || 
 					mapTOlist.get(index)== LOWER_LETTER_CLASS|| mapTOlist.get(index) == SEQUENCE_LOWER_LETTER_CLASS)
     		{
@@ -471,7 +339,7 @@ public class Abstraction_Primitives {
 		
     	for(int index = 0 ; index< mapTOlist.size(); index++)
     	{
-    		//Object next_mapValue = hashMap_abstraction_premitive.get(entry.getKey()+1);
+
     		if((mapTOlist.get(index) instanceof Character) &&
     				((char)mapTOlist.get(index) == 43 ||(char)mapTOlist.get(index) == 45) && !(flag_for_seqeunce))
     		{
@@ -559,7 +427,6 @@ public class Abstraction_Primitives {
 		
 		for(int index = 0 ; index< mapTOlist.size(); index++)
     	{
-    		//Object next_mapValue = hashMap_abstraction_premitive.get(entry.getKey()+1);
     		
 			if((mapTOlist.get(index) == UPPER_LETTER_CLASS || mapTOlist.get(index)== LOWER_LETTER_CLASS || 
 					mapTOlist.get(index)== SEQUENCE_UPPER_LETTER_CLASS || mapTOlist.get(index) == SEQUENCE_LOWER_LETTER_CLASS || 
@@ -884,33 +751,6 @@ Abstraction_Primitives date_formate_check_object = new Abstraction_Primitives();
     			
     		}
     	}
-    	
-//    	for(int i=0; i<=stringBuilder_abstraction_premitive.length()-1; i++) {
-//    		if (((int)stringBuilder_abstraction_premitive.charAt(i) < 65 || (int)stringBuilder_abstraction_premitive.charAt(i) > 90)&&
-//    		   ((int)stringBuilder_abstraction_premitive.charAt(i) < 97 || (int)stringBuilder_abstraction_premitive.charAt(i) > 122)&&
-//    		   ((int)stringBuilder_abstraction_premitive.charAt(i) < 48 || (int)stringBuilder_abstraction_premitive.charAt(i) >57 ) &&
-//    		   (int)stringBuilder_abstraction_premitive.charAt(i) != 36 && (int)stringBuilder_abstraction_premitive.charAt(i) != 35 && 
-//    		   (int)stringBuilder_abstraction_premitive.charAt(i) != 46 && 
-// 			   (int)stringBuilder_abstraction_premitive.charAt(i) != 92	&& (int)stringBuilder_abstraction_premitive.charAt(i) != 94  && 
-// 			   (int)stringBuilder_abstraction_premitive.charAt(i) != 63	&& (int)stringBuilder_abstraction_premitive.charAt(i) != 64 &&
-// 			   (int)stringBuilder_abstraction_premitive.charAt(i) != 95	&& (int)stringBuilder_abstraction_premitive.charAt(i) != 96 &&
-// 			   (int)stringBuilder_abstraction_premitive.charAt(i) != 126 && (int)stringBuilder_abstraction_premitive.charAt(i) != 38 &&
-// 			   (int)stringBuilder_abstraction_premitive.charAt(i) != 39	&& (int)stringBuilder_abstraction_premitive.charAt(i) != 33 &&
-//    		   (int)stringBuilder_abstraction_premitive.charAt(i) != 42 && (int)stringBuilder_abstraction_premitive.charAt(i) != 43 && 
-//    		   (int)stringBuilder_abstraction_premitive.charAt(i) != 45 && (int)stringBuilder_abstraction_premitive.charAt(i) != 47	&&
-//    		   (int)stringBuilder_abstraction_premitive.charAt(i) != 37  && (int)stringBuilder_abstraction_premitive.charAt(i) != 60 &&
-// 			   (int)stringBuilder_abstraction_premitive.charAt(i) != 61	&& (int)stringBuilder_abstraction_premitive.charAt(i) != 62 &&
-//    		   (int)stringBuilder_abstraction_premitive.charAt(i) != 40 && (int)stringBuilder_abstraction_premitive.charAt(i) != 41 && 
-//    		   (int)stringBuilder_abstraction_premitive.charAt(i) != 91 &&
-// 			   (int)stringBuilder_abstraction_premitive.charAt(i) != 93	&& (int)stringBuilder_abstraction_premitive.charAt(i) != 123  && 
-// 			   (int)stringBuilder_abstraction_premitive.charAt(i) != 125 && (int)stringBuilder_abstraction_premitive.charAt(i) != 34 &&
-//    		   (int)stringBuilder_abstraction_premitive.charAt(i) != 44 && (int)stringBuilder_abstraction_premitive.charAt(i) != 59 && 
-//    		   (int)stringBuilder_abstraction_premitive.charAt(i) != 124 && (int)stringBuilder_abstraction_premitive.charAt(i) != 32 &&
-// 			   (int)stringBuilder_abstraction_premitive.charAt(i) != 58	&& (int)stringBuilder_abstraction_premitive.charAt(i) != 9)
-//    	     {
-//    	    	 hashMap_abstraction_premitive.put(i, LEFT_OUT_CHARACTER_CLASS);
-//    	     }
-//    	}
 	}
     
     public void lineBreak()

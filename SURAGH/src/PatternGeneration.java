@@ -844,7 +844,7 @@ static List<Dependency_Class> specified_depdendencies = new ArrayList<Dependency
 						   
 				    }
 					
-					else if(columnList.get(i).matches("[\\x00-\\x7F]+") ) // remove [^\r\n] if line breaks are required
+					else if(columnList.get(i).matches("[\\x00-\\x7F]+") ) 
 				    {
 						
 						listOFallASCII.clear();
@@ -997,8 +997,6 @@ static List<Dependency_Class> specified_depdendencies = new ArrayList<Dependency
 								List appendNullList = new ArrayList<>();						
 																								
 								appendNullList.add(PADDED_CLASS.toString());
-//								appendNullList.add(EMPTY_VALUES_CLASS.toString());
-//								appendNullList.add(MISSING_VALUES_CLASS.toString());
 								listoflist.add(listoflist.size()-1,appendNullList);
 							}
 						}

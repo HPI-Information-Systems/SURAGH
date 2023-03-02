@@ -21,10 +21,9 @@ public class JsonWriter {
             jsonArray.put(objItem);
         }
 
-        try (FileWriter file = new FileWriter(fileSchema)) {    // add "true" for appending e.g., FileWriter file = new FileWriter(fileSchema, true)
+        try (FileWriter file = new FileWriter(fileSchema)) {    
             file.write(jsonArray.toString());
-            //System.out.println("Successfully Copied JSON Object to File...");
-            //System.out.println("\nJSON Object: " + jsonArray);
+           
         } catch(Exception e){
             System.out.println(e);
 
@@ -40,20 +39,17 @@ public class JsonWriter {
         JSONObject objItem_ill =  new JSONObject();
         
         objItem_well.put("Well-Formed Records Indices",  parsed_rows_indicies_LIST);
-        //objItem_well.put("Size",  parsed_rows_indicies_LIST.size());
           
         jsonArray_new.put(objItem_well);
       
         objItem_ill.put("Ill-Formed Records Indices",  possible_Outlier_Rows_indicies_LIST);
-       // objItem_ill.put("Size",  possible_Outlier_Rows_indicies_LIST.size());
            
         jsonArray_new.put(objItem_ill);
         
 
-        try (FileWriter file = new FileWriter(resultIndicies)) {    // add "true" for appending e.g., FileWriter file = new FileWriter(resultIndicies, true)
+        try (FileWriter file = new FileWriter(resultIndicies)) {    
             file.write(jsonArray_new.toString());
-            //System.out.println("Successfully Copied JSON Object to File...");
-            //System.out.println("\nJSON Object: " + jsonArray);
+          
         } catch(Exception e){
             System.out.println(e);
 
